@@ -64,9 +64,7 @@ export function Header() {
               {language.toUpperCase()}
             </Button>
 
-            <Button variant="ghost" size="sm" onClick={toggleTheme}>
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </Button>
+           
 
             {/* Mobile Menu Button */}
             <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>

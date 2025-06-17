@@ -19,7 +19,7 @@ export function Hero() {
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
             <img
-              src="/placeholder.svg?height=128&width=128"
+              src="/profile-pic.png?height=128&width=128"
               alt="Juan Cruz Bonadeo"
               className="w-28 h-28 rounded-full object-cover"
             />
