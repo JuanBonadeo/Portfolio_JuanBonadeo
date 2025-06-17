@@ -93,18 +93,7 @@ export function Contact() {
               <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
 
               <a
-                href="mailto:your.email@example.com"
-                className="flex items-center space-x-3 p-4 rounded-lg bg-background border border-border hover:border-blue-500/50 transition-colors"
-              >
-                <Mail className="w-5 h-5 text-blue-500" />
-                <div>
-                  <div className="font-medium">{t("contact.emailLabel")}</div>
-                  <div className="text-sm text-foreground/70">your.email@example.com</div>
-                </div>
-              </a>
-
-              <a
-                href="https://github.com/YourUsername"
+                href="https://github.com/JuanBonadeo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 p-4 rounded-lg bg-background border border-border hover:border-blue-500/50 transition-colors"
@@ -112,12 +101,12 @@ export function Contact() {
                 <Github className="w-5 h-5 text-blue-500" />
                 <div>
                   <div className="font-medium">{t("contact.githubLabel")}</div>
-                  <div className="text-sm text-foreground/70">github.com/YourUsername</div>
+                  <div className="text-sm text-foreground/70">github.com/JuanBonadeo</div>
                 </div>
               </a>
 
               <a
-                href="https://linkedin.com/in/YourProfile"
+                href="https://www.linkedin.com/in/juan-cruz-bonadeo-55a243188/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 p-4 rounded-lg bg-background border border-border hover:border-blue-500/50 transition-colors"
@@ -125,9 +114,21 @@ export function Contact() {
                 <Linkedin className="w-5 h-5 text-blue-500" />
                 <div>
                   <div className="font-medium">{t("contact.linkedinLabel")}</div>
-                  <div className="text-sm text-foreground/70">linkedin.com/in/YourProfile</div>
+                  <div className="text-sm text-foreground/70">linkedin/JuanBonadeo</div>
                 </div>
               </a>
+
+              <a
+                href="mailto:your.email@example.com"
+                className="flex items-center space-x-3 p-4 rounded-lg bg-background border border-border hover:border-blue-500/50 transition-colors"
+              >
+                <Mail className="w-5 h-5 text-blue-500" />
+                <div>
+                  <div className="font-medium">{t("contact.emailLabel")}</div>
+                  <div className="text-sm text-foreground/70">juancruzbonadeo04@gmail.com</div>
+                </div>
+              </a>
+              
             </div>
           </div>
         </div>

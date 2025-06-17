@@ -12,30 +12,30 @@ export function Projects() {
     {
       name: "Orlandi Propiedades",
       description: t("projects.orlandi.description"),
-      tech: ["React", "Next.js", "Tailwind"],
+      tech: ["React", "CSS", "JavaScript", "Firebase"],
       url: "https://www.orlandi-inmobiliaria.com/",
-      github: "#",
+      github: "https://github.com/JuanBonadeo/Proyecto-Orlandi_propiedades",
     },
     {
       name: "Oud Parfam",
       description: t("projects.oud.description"),
-      tech: ["Next.js", "React", "Tailwind"],
+      tech: ["javascript", "React", "Tailwind", "Firebase"],
       url: "https://oudparfam.vercel.app/",
-      github: "#",
+      github: "https://github.com/JuanBonadeo/OudRosarioParfam",
     },
     {
       name: "Teslo Shop",
       description: t("projects.teslo.description"),
-      tech: ["Next.js", "React", "Prisma"],
+      tech: ["Next.js", "React", "Prisma", "PostrgeSQL"],
       url: "https://tesloshopnext.vercel.app/cart",
-      github: "#",
+      github: "https://github.com/JuanBonadeo/nextjs-teslo-shop",
     },
     {
       name: "Debon Solutions",
       description: t("projects.debon.description"),
-      tech: ["React", "Next.js", "GSAP"],
+      tech: ["React", "Next.js", "Tailwind", "TypeScript"],
       url: "https://www.debonsolutions.com/home",
-      github: "#",
+      github: "https://github.com/JuanBonadeo/DebonSolutions",
     },
   ]
 

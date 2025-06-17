@@ -14,10 +14,11 @@ export function About() {
           <div className="animate-on-scroll">
             <div className="w-64 h-64 mx-auto rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 flex items-center justify-center">
               <img
-                src="/placeholder.svg?height=240&width=240"
+                src="/me.jpeg?height=240&width=240"
                 alt="Juan Cruz Bonadeo"
                 className="w-56 h-56 rounded-xl object-cover"
               />
+              
             </div>
           </div>
 

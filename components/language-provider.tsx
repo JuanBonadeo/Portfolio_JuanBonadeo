@@ -26,7 +26,7 @@ const translations = {
     // About
     "about.title": "About Me",
     "about.bio":
-      "I'm a Systems Engineering student at UTN with a strong focus on frontend development. I specialize in building clean, scalable web apps with modern technologies like React, Next.js, .NET, Python, Tailwind, Astro and more. I've built custom scrapers and completed courses from Coderhouse and Udemy.",
+      "I'm a Full Stack Developer and Systems Engineering student at UTN, focused on frontend with React and Next.js. I build modern web apps using .NET, Python, Tailwind and more. With an intermediate English level (FCE certified) and a self-taught mindset, I've completed hands-on courses and built scrapers and real-world projects.",
 
     // Skills
     "skills.title": "Skills & Technologies",
@@ -66,7 +66,7 @@ const translations = {
     // About
     "about.title": "Acerca de Mí",
     "about.bio":
-      "Soy estudiante de Ingeniería en Sistemas en la UTN con un fuerte enfoque en desarrollo frontend. Me especializo en construir aplicaciones web limpias y escalables con tecnologías modernas como React, Next.js, .NET, Python, Tailwind, Astro y más. He construido scrapers personalizados y completado cursos de Coderhouse y Udemy.",
+      "Soy Desarrollador Full Stack y estudiante de Ingeniería en Sistemas en la UTN, enfocado en frontend con React y Next.js. Desarrollo aplicaciones web modernas con .NET, Python, Tailwind y más. Con nivel de inglés intermedio (FCE aprobado) y perfil autodidacta, hice cursos prácticos y proyectos reales con scrapers incluidos.",
 
     // Skills
     "skills.title": "Habilidades y Tecnologías",
