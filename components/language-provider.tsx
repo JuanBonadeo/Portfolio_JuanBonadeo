@@ -1,0 +1,123 @@
+"use client"
+
+import { createContext, useContext, useState, type ReactNode } from "react"
+
+type Language = "en" | "es"
+
+interface LanguageContextType {
+  language: Language
+  toggleLanguage: () => void
+  t: (key: string) => string
+}
+
+const translations = {
+  en: {
+    // Navigation
+    "nav.about": "About",
+    "nav.skills": "Skills",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+
+    // Hero
+    "hero.title": "Full Stack Developer",
+    "hero.tagline": "Creating modern web experiences",
+    "hero.cta": "View Projects",
+
+    // About
+    "about.title": "About Me",
+    "about.bio":
+      "I'm a Systems Engineering student at UTN with a strong focus on frontend development. I specialize in building clean, scalable web apps with modern technologies like React, Next.js, .NET, Python, Tailwind, Astro and more. I've built custom scrapers and completed courses from Coderhouse and Udemy.",
+
+    // Skills
+    "skills.title": "Skills & Technologies",
+
+    // Projects
+    "projects.title": "Featured Projects",
+    "projects.orlandi.description": "Modern real estate website with property listings and search functionality",
+    "projects.oud.description": "Elegant ecommerce platform for premium perfumes with cart and checkout",
+    "projects.teslo.description": "Tesla-inspired clothing store with modern design and shopping features",
+    "projects.debon.description": "Professional software agency portfolio showcasing services and expertise",
+    "projects.viewSite": "View Site",
+    "projects.viewCode": "View Code",
+
+    // Contact
+    "contact.title": "Get In Touch",
+    "contact.subtitle": "Let's work together on your next project",
+    "contact.name": "Name",
+    "contact.email": "Email",
+    "contact.message": "Message",
+    "contact.send": "Send Message",
+    "contact.emailLabel": "Email",
+    "contact.githubLabel": "GitHub",
+    "contact.linkedinLabel": "LinkedIn",
+  },
+  es: {
+    // Navigation
+    "nav.about": "Acerca de",
+    "nav.skills": "Habilidades",
+    "nav.projects": "Proyectos",
+    "nav.contact": "Contacto",
+
+    // Hero
+    "hero.title": "Desarrollador Full Stack",
+    "hero.tagline": "Creando experiencias web modernas",
+    "hero.cta": "Ver Proyectos",
+
+    // About
+    "about.title": "Acerca de Mí",
+    "about.bio":
+      "Soy estudiante de Ingeniería en Sistemas en la UTN con un fuerte enfoque en desarrollo frontend. Me especializo en construir aplicaciones web limpias y escalables con tecnologías modernas como React, Next.js, .NET, Python, Tailwind, Astro y más. He construido scrapers personalizados y completado cursos de Coderhouse y Udemy.",
+
+    // Skills
+    "skills.title": "Habilidades y Tecnologías",
+
+    // Projects
+    "projects.title": "Proyectos Destacados",
+    "projects.orlandi.description":
+      "Sitio web inmobiliario moderno con listados de propiedades y funcionalidad de búsqueda",
+    "projects.oud.description": "Plataforma de ecommerce elegante para perfumes premium con carrito y checkout",
+    "projects.teslo.description": "Tienda de ropa inspirada en Tesla con diseño moderno y funciones de compra",
+    "projects.debon.description": "Portfolio profesional de agencia de software mostrando servicios y experiencia",
+    "projects.viewSite": "Ver Sitio",
+    "projects.viewCode": "Ver Código",
+
+    // Contact
+    "contact.title": "Ponte en Contacto",
+    "contact.subtitle": "Trabajemos juntos en tu próximo proyecto",
+    "contact.name": "Nombre",
+    "contact.email": "Email",
+    "contact.message": "Mensaje",
+    "contact.send": "Enviar Mensaje",
+    "contact.emailLabel": "Email",
+    "contact.githubLabel": "GitHub",
+    "contact.linkedinLabel": "LinkedIn",
+  },
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+export function useLanguage() {
+  const context = useContext(LanguageContext)
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider")
+  }
+  return context
+}
+
+interface LanguageProviderProps {
+  children: ReactNode
+}
+
+export function LanguageProvider({ children }: LanguageProviderProps) {
+  const [language, setLanguage] = useState<Language>("en")
+
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === "en" ? "es" : "en"))
+  }
+
+  const t = (key: string): string => {
+    return translations[language][key as keyof (typeof translations)[typeof language]] || key
+  }
+
+  return <LanguageContext.Provider value={{ language, toggleLanguage, t }}>{children}</LanguageContext.Provider>
+}
