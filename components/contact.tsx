@@ -1,37 +1,63 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import {  useFormStatus } from "react-dom"
+import { useActionState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/components/language-provider"
-import { Mail, Github, Linkedin, Send } from "lucide-react"
+import { Mail, Github, Linkedin, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { sendContactEmail, type ContactFormState } from "@/app/actions/send-email"
+
+// Componente para el botón de envío (necesita estar separado para usar useFormStatus)
+function SubmitButton({ pending }: { pending: boolean }) {
+  const { t } = useLanguage()
+  const { pending: formPending } = useFormStatus()
+  
+  return (
+    <Button type="submit" className="w-full" disabled={formPending || pending}>
+      {formPending || pending ? (
+        <>
+          <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-b-transparent border-white" />
+          {t("contact.sending")}
+        </>
+      ) : (
+        <>
+          <Send className="w-4 h-4 mr-2" />
+          {t("contact.send")}
+        </>
+      )}
+    </Button>
+  )
+}
 
 export function Contact() {
   const { t } = useLanguage()
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
+  const formRef = useRef<HTMLFormElement>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
+  const initialState: ContactFormState = {
+    success: false,
+    message: '',
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }))
-  }
+  const [state, formAction, pending] = useActionState(sendContactEmail, initialState)
+
+  // Limpiar el formulario y el mensaje después de envío exitoso
+  useEffect(() => {
+    if (state.success) {
+      // Limpiar el formulario
+      formRef.current?.reset()
+      
+      // Limpiar el mensaje después de 5 segundos
+      const timer = setTimeout(() => {
+        // Para limpiar el estado, necesitamos hacer un dispatch con el estado inicial
+        // Esto se puede hacer enviando un formData vacío o usando un action específico
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [state.success])
 
   return (
     <section id="contact" className="py-20 px-4 bg-muted/30">
@@ -49,40 +75,52 @@ export function Contact() {
               <CardDescription>Fill out the form below and I'll get back to you soon.</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={formRef} action={formAction} className="space-y-4">
                 <div>
                   <Input
                     name="name"
                     placeholder={t("contact.name")}
-                    value={formData.name}
-                    onChange={handleChange}
                     required
+                    className={state.errors?.name ? 'border-red-500' : ''}
                   />
                 </div>
+
                 <div>
                   <Input
                     name="email"
                     type="email"
                     placeholder={t("contact.email")}
-                    value={formData.email}
-                    onChange={handleChange}
                     required
+                    className={state.errors?.email ? 'border-red-500' : ''}
                   />
                 </div>
+
                 <div>
                   <Textarea
                     name="message"
                     placeholder={t("contact.message")}
-                    value={formData.message}
-                    onChange={handleChange}
                     rows={4}
                     required
+                    className={state.errors?.message ? 'border-red-500' : ''}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  {t("contact.send")}
-                </Button>
+
+                {/* Mensajes de estado */}
+                {state.message && (
+                  <div className={`flex items-center space-x-2  rounded-lg ${state.success
+                      ? 'text-green-600 '
+                      : 'text-red-600 '
+                    }`}>
+                    {state.success ? (
+                      <><CheckCircle className="w-5 h-5" /> <span>{t("contact.sended")}</span></>
+                    ) : (
+                      <><AlertCircle className="w-5 h-5" /> <span>{t("contact.error")}</span></>
+                    )}
+                    
+                  </div>
+                )}
+
+                <SubmitButton pending={pending} />
               </form>
             </CardContent>
           </Card>
@@ -119,7 +157,7 @@ export function Contact() {
               </a>
 
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:juancruzbonadeo04@gmail.com"
                 className="flex items-center space-x-3 p-4 rounded-lg bg-background border border-border hover:border-blue-500/50 transition-colors"
               >
                 <Mail className="w-5 h-5 text-blue-500" />
@@ -128,7 +166,6 @@ export function Contact() {
                   <div className="text-sm text-foreground/70">juancruzbonadeo04@gmail.com</div>
                 </div>
               </a>
-              
             </div>
           </div>
         </div>

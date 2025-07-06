@@ -18,9 +18,11 @@
     "react": "^19",
     "react-dom": "^19",
     "react-icons": "latest",
+    "resend": "^4.6.0",
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "^3.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.25.74"
   },
   "devDependencies": {
     "@types/node": "^22",
