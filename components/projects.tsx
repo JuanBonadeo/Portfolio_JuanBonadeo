@@ -47,7 +47,7 @@ export function Projects() {
       description: t("projects.teslo.description"),
       image: "/projects/teslo.jpeg",
       tech: ["Next.js", "React", "Prisma", "PostgreSQL"],
-      url: "https://critio.vercel.app/cart",
+      url: "https://tesloshopnext.vercel.app",
       github: "https://github.com/JuanBonadeo/nextjs-teslo-shop",
     },
   ]
