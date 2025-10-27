@@ -37,6 +37,7 @@ const translations = {
     "projects.oud.description": "Elegant ecommerce platform for premium perfumes with cart and checkout",
     "projects.teslo.description": "Tesla-inspired clothing store with modern design and shopping features",
     "projects.debon.description": "Professional software agency portfolio showcasing services and expertise",
+    "projects.critio.description": "Movie reviews web app with user authentication and ratings",
     "projects.viewSite": "View Site",
     "projects.viewCode": "View Code",
 
@@ -81,6 +82,7 @@ const translations = {
     "projects.oud.description": "Plataforma de ecommerce elegante para perfumes premium con carrito y checkout",
     "projects.teslo.description": "Tienda de ropa inspirada en Tesla con diseño moderno y funciones de compra",
     "projects.debon.description": "Portfolio profesional de agencia de software mostrando servicios y experiencia",
+    "projects.critio.description": "Aplicación web de reseñas de películas con autenticación de usuarios y calificaciones",
     "projects.viewSite": "Ver Sitio",
     "projects.viewCode": "Ver Código",
 
