@@ -1,0 +1,10 @@
+# Resend API Key - obtenerla en https://resend.com/api-keys
+RESEND_API_KEY=re_B27k4yKM_FFggafrx7YmRDWP8NRpyvBx3
+
+# Email desde el cual se enviarán los mensajes (debe ser un dominio verificado en Resend)
+# Si no tienes dominio propio, puedes usar el dominio de prueba de Resend
+FROM_EMAIL=onboarding@resend.dev
+# Para testing puedes usar: FROM_EMAIL=onboarding@resend.dev
+
+# Email donde quieres recibir los mensajes de contacto
+CONTACT_EMAIL=juancruzbonadeo04@gmail.com
